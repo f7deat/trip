@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { AmenitiesListItem } from "../../types";
 
 
 const Amenities = (props: any) => {
@@ -10,7 +9,7 @@ const Amenities = (props: any) => {
                 Tiện ích
             </button>
             <div className="shadow absolute" hidden={hidden}>
-                {props.data.data.map((item: AmenitiesListItem) => (
+                {props.data.data.map((item: API.AmenitiesListItem) => (
                     <div key={item.id} className="px-4 py-1 hover:bg-green-50 cursor-pointer">{item.name}</div>
                 ))}
             </div>

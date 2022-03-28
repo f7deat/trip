@@ -9,6 +9,7 @@
   --gray-700: #334155;
   --gray-800: #1f2937;
   --gray-900: #111827;
+  --green-600: #16a34a;
   --green-500: #22c55e;
   --green-100: #dcfce7;
   --green-50: #f0fdf4;
@@ -30,12 +31,12 @@ body {
 }
 
 a {
-  color: #007bff;
+  color: var(--green-500);
   text-decoration: none;
 }
 
   a:hover {
-      color: #0056b3
+      color: var(--green-600);
   }
 
 h1, h2, h3, h4 {
@@ -286,6 +287,9 @@ th, td {
 .ml-2 {
   margin-left: 0.5rem;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -323,6 +327,9 @@ th, td {
 }
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
 }
 .gap-4 {
   gap: 1rem;
@@ -539,6 +546,9 @@ th, td {
 }
 .hover\:bg-green-100:hover {
   background-color: var(--green-100);
+}
+.hover\:bg-green-500:hover {
+  background-color: var(--green-500);
 }
 .hover\:bg-gray-200:hover {
   background-color: var(--gray-200);
