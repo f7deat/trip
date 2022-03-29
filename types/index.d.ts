@@ -60,6 +60,13 @@ declare namespace API {
         url: string;
     }
 
+    export type Photo = {
+        id: number;
+        slide: boolean;
+        photo_url: string;
+        thumbnail: string;
+    }
+
     export type RoomItem = {
         id: number;
         host_id: number;
@@ -90,5 +97,6 @@ declare namespace API {
         featured_photo: string;
         address: Payload<Address>;
         destinations: Payload<Destination[]>;
+        photos: Payload<Photo[]>;
     }
 }

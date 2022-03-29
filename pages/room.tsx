@@ -1,9 +1,14 @@
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
-import Head from "next/head"
+import Head from "next/head";
 import Link from "next/link";
+import Image from 'next/image';
 import { queryRoom } from "../api/rooms";
 import Footer from "../components/layout/footer";
-import Header from "../components/layout/header"
+import Header from "../components/layout/header";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const data = await queryRoom(context.query['id']);
@@ -14,6 +19,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 }
 
+import { Pagination, Navigation } from "swiper";
+
 const Room: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
         <div>
@@ -23,6 +30,40 @@ const Room: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSi
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                loop={true}
+                loopFillGroupWithBlank={true}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+                breakpoints={{
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 10,
+                    },
+                }}
+            >
+                {
+                    data.photos.data.map((photo: API.Photo) => (
+                        <SwiperSlide key={photo.id}>
+                            <Image src={photo.photo_url} alt="IMG" className="object-fit-cover" width={500} height={400} />
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
             <main className="container">
                 <div className="px-4 py-2 bg-gray-100 rounded flex gap-4 mb-2">
                     <Link href="/" passHref>
