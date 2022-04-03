@@ -1,6 +1,24 @@
 declare namespace API {
     export type Payload<T> = {
         data: T;
+        meta?: Meta;
+    }
+
+    export type Meta = {
+        pagination: Pagination;
+    }
+
+    export type Pagination = {
+        total: number;
+        count: number;
+        per_page: number;
+        current_page: number;
+        total_pages: number;
+        links: Links;
+    }
+
+    export type Links = {
+        next: string;
     }
     
     export type AmenitiesListItem = {
@@ -43,7 +61,7 @@ declare namespace API {
         checkin_date_price_formatted: string;
         photos: Payload<PhotoListItem>;
         address: Payload<Address>;
-        property_type: Payload<PropertyTypesListItem>
+        property_type: Payload<PropertyTypesListItem>;
     }
 
     export type PhotoListItem = {

@@ -10,7 +10,7 @@ import Rooms from '../components/rooms'
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const amenities = await queryAmenities();
   const rooms = await queryRooms({
-    page: 1,
+    page: context.query['page'] || 1,
     limit: 10,
     sid: context.query['sid'],
     property_type: context.query['property_type']
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       amenities: amenities.data.data,
-      rooms: rooms.data.data,
+      rooms: rooms.data,
       propertyTypes: propertyTypes.data.data
     }
   }
@@ -37,7 +37,6 @@ const Home: NextPage = ({ amenities, rooms, propertyTypes }: InferGetServerSideP
       <Header />
       <div className='container px-2 md:px-0 md:flex gap-4'>
         <main className='md:w-2/3'>
-          <div className="bg-gray-800 text-white font-bold rounded-t px-4 py-2 mb-1">Bạn muốn đi đâu?</div>
           <Rooms dataSource={rooms} />
         </main>
         <aside className='md:w-1/3'>
