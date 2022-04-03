@@ -7,6 +7,21 @@ declare namespace API {
         id: string;
         name: string;
     }
+
+    export type PropertyTypesListItem = {
+        id: number;
+        name: string;
+        description: string;
+    }
+
+    export type Host = {
+        id: number;
+        full_name: string;
+        avatar: string;
+        phone: string;
+        rooms: number;
+        response_rate: number;
+    }
     
     export type RoomListItem = {
         id: number;
@@ -27,6 +42,8 @@ declare namespace API {
         checkin_date_price: number;
         checkin_date_price_formatted: string;
         photos: Payload<PhotoListItem>;
+        address: Payload<Address>;
+        property_type: Payload<PropertyTypesListItem>
     }
 
     export type PhotoListItem = {
@@ -98,5 +115,16 @@ declare namespace API {
         address: Payload<Address>;
         destinations: Payload<Destination[]>;
         photos: Payload<Photo[]>;
+        amenities: Payload<AmenitiesListItem[]>;
+        host: Payload<Host>;
+    }
+
+    export type Article = {
+        id: number;
+        title: string;
+        url: string;
+        view: number;
+        modifiedDate: Date;
+        thumbnail: string;
     }
 }

@@ -1,7 +1,10 @@
 import { useState } from "react";
 
+type AmenitiesProps = {
+    data: API.AmenitiesListItem[]
+}
 
-const Amenities = (props: any) => {
+const AmenitiesComponent: React.FC<AmenitiesProps> = (props) => {
     const [hidden, setHidden] = useState(true);
     return (
         <div className="relative">
@@ -9,11 +12,11 @@ const Amenities = (props: any) => {
                 Tiện ích
             </button>
             <div className="shadow absolute" hidden={hidden}>
-                {props.data.data.map((item: API.AmenitiesListItem) => (
+                {props.data.map((item: API.AmenitiesListItem) => (
                     <div key={item.id} className="px-4 py-1 hover:bg-green-50 cursor-pointer">{item.name}</div>
                 ))}
             </div>
         </div>
     )
 }
-export default Amenities
+export default AmenitiesComponent

@@ -20,16 +20,6 @@ const Header: React.FC = () => {
                     </div>
                     <div id="sidebar" className="transform -translate-x-full md:translate-x-0 w-64 z-10">
                         <ul className="flex flex-grow font-medium list-none p-0 m-0 flex-col md:flex-row">
-                            <li className="nav-item dropdown">
-                                <button className="text-gray-700 px-4 h-16 w-full flex items-center justify-between font-medium navbar-action" type="button" id="dropdownMenuWatch" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div><i className="fa fa-film mr-2" /> Xem gì</div><i className="fas fa-angle-down ml-2" />
-                                </button>
-                                <div className="shadow z-10 min-w-full md:min-w-64 dropdown-menu bg-white" aria-labelledby="dropdownMenuWatch">
-                                    <a className="py-2 px-4 hover:bg-gray-200 flex items-center text-gray-800 flex" href="/videos"><i className="fas fa-caret-right mr-2" />Video</a>
-                                    <a className="py-2 px-4 hover:bg-gray-200 flex items-center text-gray-800 flex" href="/albums"><i className="fas fa-caret-right mr-2" />Albums</a>
-                                    <a className="py-2 px-4 hover:bg-gray-200 flex items-center text-gray-800 flex" href="/trip/bookings"><i className="fas fa-caret-right mr-2" />Ăn chơi</a>
-                                </div>
-                            </li>
                             <li className="navbar-item">
                                 <a className="text-gray-700 flex items-center px-4 h-16" href="https://game.defzone.net"><i className="fas fa-gamepad mr-2" /> Game</a>
                             </li>

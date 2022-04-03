@@ -1,11 +1,26 @@
-import Amenities from "../../amenities"
+import Link from "next/link";
+import AmenitiesComponent from "../../amenities";
 
-const Sidebar: React.FC<any> = (props: any) => {
+type SidebarProps = {
+    amenities?: API.AmenitiesListItem[];
+    propertyTypes: API.PropertyTypesListItem[];
+}
+
+const Sidebar: React.FC<SidebarProps> = (props) => {
     return (
-        <aside className='md:w-1/3'>
-            <div className="font-bold mb-2">Bộ lọc</div>
-            <Amenities data={props} />
-        </aside>
+        <div className="mb-4">
+            <div className="bg-gray-800 text-white font-bold rounded-t px-4 py-2">Loại căn hộ</div>
+            {
+                props.propertyTypes?.map(item => (
+                    <div key={item.id} className="px-4 py-2 border-b hover:bg-green-100">
+                        <i className="fab fa-staylinked mr-2"></i>
+                        <Link href={`/?property_type=${item.id}`}>
+                            {item.name}
+                        </Link>
+                    </div>
+                ))
+            }
+        </div>
     )
 }
 export default Sidebar
