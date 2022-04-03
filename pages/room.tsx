@@ -39,6 +39,10 @@ const Room: NextPage = ({ data, propertyTypes, relateds }: InferGetServerSidePro
                 <title>Những chuyến vi vu bất tận cùng trip.defzone.net</title>
                 <meta name="description" content="Đặt phòng, homestay, căn hộ studio đi du lịch, nghỉ dưỡng trên cả nước" />
                 <meta name="zalo-platform-site-verification" content="JjQK5vhhCJL2-QigdSi1DNlSZpcNhbjlD3a" />
+                <meta property="og:url" content={`https://trip.defzone.net/room/${data.id}`} />
+                <meta property="og:title" content={data.name} />
+                <meta property="og:image" content={data.featured_photo} />
+                <meta property="og:description" content={data.summary} />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
@@ -83,7 +87,7 @@ const Room: NextPage = ({ data, propertyTypes, relateds }: InferGetServerSidePro
                     </Link>
                     {data.destinations.data.map((destination: API.Destination) => (
                         <Link href={{
-                            pathname: '',
+                            pathname: '/',
                             query: {
                                 sid: destination.id
                             }

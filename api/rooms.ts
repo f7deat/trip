@@ -2,9 +2,9 @@ import axios from "axios";
 
 /** GET: rooms */
 export function queryRooms(params: {
-    page?: number;
+    page: number;
     /** Limit of result */
-    limit?: number;
+    limit: number;
     /** Id of destination */
     sid?: number | string | string[] | undefined;
     /** Search room by property */
