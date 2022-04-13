@@ -14,7 +14,7 @@ const Rooms: React.FC<RoomsProps> = (props) => {
                     props.dataSource.data.map((room: API.RoomListItem) => (
                         <div key={room.id} className="h-full shadow flex flex-col rounded">
                             <Link href={{
-                                pathname: '/room',
+                                pathname: '/room/[id]',
                                 query: {
                                     id: room.id
                                 }
@@ -34,7 +34,7 @@ const Rooms: React.FC<RoomsProps> = (props) => {
                                 </Link>
                                 <div className='flex-1 mb-1'>
                                     <Link href={{
-                                        pathname: '/room',
+                                        pathname: '/room/[id]',
                                         query: {
                                             id: room.id
                                         }

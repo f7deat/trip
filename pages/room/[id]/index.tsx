@@ -2,18 +2,18 @@ import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
 import Head from "next/head";
 import Link from "next/link";
 import Image from 'next/image';
-import { queryRoom, queryRooms } from "../api/rooms";
-import Footer from "../components/layout/footer";
-import Header from "../components/layout/header";
+import { queryRoom, queryRooms } from "../../../api/rooms";
+import Footer from "../../../components/layout/footer";
+import Header from "../../../components/layout/header";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
-import RelatedRooms from "../components/rooms/related";
+import RelatedRooms from "../../../components/rooms/related";
 import Script from "next/script";
-import Sidebar from "../components/layout/sidebar";
-import { queryPropertyTypes } from "../api/collections";
+import Sidebar from "../../../components/layout/sidebar";
+import { queryPropertyTypes } from "../../../api/collections";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const data = await queryRoom(context.query['id']);
@@ -129,7 +129,7 @@ const Room: NextPage = ({ data, propertyTypes, relateds }: InferGetServerSidePro
                         <div className="mb-4">
                             <div className="px-4 py-2 rounded-t bg-gray-800 text-white font-bold">Thông tin Host</div>
                             <div className="flex items-center py-2 gap-4">
-                                <Image src={data.host.data.avatar} width={70} height={70} alt={data.host.data.full_name} className="rounded-full" />
+                                <Image src={data.host.data.avatar} width={70} height={70} alt={data.host.data.full_name} className="rounded-full object-fit-cover" />
                                 <div className="flex-grow">
                                     <div className="mb-1">
                                         <span className="mr-1 font-bold">{data.host.data.full_name}</span>

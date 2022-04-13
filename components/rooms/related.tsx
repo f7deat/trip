@@ -16,7 +16,7 @@ const RelatedRooms: React.FC<RelatedRoomsProps> = (props) => {
                             <div className="h-full shadow flex flex-col">
                                 <div className="bg-gray-800 cursor-pointer">
                                     <Link href={{
-                                        pathname: '/room',
+                                        pathname: '/room/[id]',
                                         query: {
                                             id: item.id
                                         }
@@ -37,7 +37,7 @@ const RelatedRooms: React.FC<RelatedRoomsProps> = (props) => {
                                         </div>
                                     </Link>
                                     <Link href={{
-                                        pathname: '/room',
+                                        pathname: '/room/[id]',
                                         query: {
                                             id: item.id
                                         }
