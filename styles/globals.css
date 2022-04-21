@@ -407,7 +407,8 @@ th, td {
   justify-content: center;
 }
 .container {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cursor-zoom-in {
@@ -456,7 +457,7 @@ th, td {
   right: 0px;
 }
 .justify-end {
-  justify-content: end;
+  justify-content: flex-end;
 }
 .text-sm {
   font-size: 0.875rem;

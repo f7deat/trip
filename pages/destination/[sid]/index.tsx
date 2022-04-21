@@ -1,20 +1,20 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import Head from 'next/head'
-import { queryAmenities, queryPropertyTypes } from '../api/collections'
-import { queryRooms } from '../api/rooms'
-import City from '../components/city'
-import Footer from '../components/layout/footer'
-import Header from '../components/layout/header'
-import Sidebar from '../components/layout/sidebar'
-import Rooms from '../components/rooms'
+import Home from '../..';
+import { queryAmenities, queryPropertyTypes } from '../../../api/collections';
+import { queryRooms } from '../../../api/rooms';
+import City from '../../../components/city';
+import Footer from '../../../components/layout/footer';
+import Header from '../../../components/layout/header';
+import Sidebar from '../../../components/layout/sidebar';
+import Rooms from '../../../components/rooms';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const amenities = await queryAmenities();
   const rooms = await queryRooms({
     page: context.query['page'] || 1,
     limit: 10,
-    sid: context.query['sid'],
-    property_type: context.query['property_type']
+    sid: context.query['sid']
   });
   const propertyTypes = await queryPropertyTypes();
   return {
@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-const Home: NextPage = ({ amenities, rooms, propertyTypes }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Destination: NextPage = ({ amenities, rooms, propertyTypes }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div className="root">
       <Head>
@@ -36,9 +36,6 @@ const Home: NextPage = ({ amenities, rooms, propertyTypes }: InferGetServerSideP
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className='container mb-4 px-2 md:px-0'>
-        <City />
-      </div>
       <div className='container px-2 md:px-0 md:flex gap-4'>
         <main className='md:w-2/3'>
           <Rooms dataSource={rooms} />
@@ -52,4 +49,4 @@ const Home: NextPage = ({ amenities, rooms, propertyTypes }: InferGetServerSideP
   )
 }
 
-export default Home
+export default Destination

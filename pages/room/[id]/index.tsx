@@ -118,7 +118,7 @@ const Room: NextPage = ({ data, propertyTypes, relateds }: InferGetServerSidePro
                                 }
                             </div>
                             <div className="font-bold text-lg mb-4">Đặt phòng</div>
-                            <a href={`${data.url}/?cid=1884`} target="_blank" rel="noreferrer" className="font-medium text-white rounded w-full px-4 py-2 bg-green-500 text-center block hover:text-white hover:bg-green-600">Đặt phòng ngày trên Luxstay</a>
+                            <a href={`${data.url}/?cid=1975`} target="_blank" rel="noreferrer" className="font-medium text-white rounded w-full px-4 py-2 bg-green-500 text-center block hover:text-white hover:bg-green-600">Đặt phòng ngày trên Luxstay</a>
                         </div>
                         <div className="mb-4">
                             <div className="px-4 py-2 bg-gray-800 text-white rounded-t font-bold">Bình luận</div>
